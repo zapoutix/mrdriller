@@ -1,47 +1,55 @@
 class_name MrDrillerBlock
 extends Node2D
 
-@onready var sprites: AnimatedSprite2D = $BlueSprites
-@onready var type: Type = Type.NO_BORDER
+enum BorderPosition {
+	LEFT, 
+	RIGHT, 
+	TOP,
+	BOTTOM,
+}
 
-enum Type {
-	NO_BORDER, 
-	FOUR_BORDER, 
-	ONE_BORDER_LEFT = 3,
-	ONE_BORDER_TOP,
-	ONE_BORDER_RIGHT,
-	ONE_BORDER_BOTTOM,
-	TWO_BORDERS_TOP_LEFT,
-	TWO_BORDERS_TOP_RIGHT,
-	TWO_BORDERS_BOTTOM_RIGHT,
-	TWO_BORDERS_BOTTOM_LEFT,
-	THREE_BORDERS_BOTTOM_LEFT_RIGHT,
-	THREE_BORDERS_TOP_BOTTOM_LEFT,
-	THREE_BORDERS_TOP_LEFT_RIGHT,
-	THREE_BORDERS_TOP_BOTTOM_RIGHT,
-	ONE_CORNER_TOP_LEFT,
-	ONE_CORNER_TOP_RIGHT,
-	ONE_CORNER_BOTTOM_RIGHT,
-	ONE_CORNER_BOTTOM_LEFT,
-	TWO_CORNERS_TOP,
-	TWO_CORNERS_RIGHT,
-	TWO_CORNERS_BOTTOM,
-	TWO_CORNERS_LEFT,
-	THREE_CORNERS_TOP_LEFT,
-	THREE_CORNERS_TOP_RIGHT,
-	THREE_CORNERS_BOTTOM_RIGHT,
-	THREE_CORNERS_BOTTOM_LEFT,
-	FOUR_CORNERS
+enum CornerPosition {
+	TOP_LEFT, 
+	TOP_RIGHT, 
+	BOTTOM_LEFT,
+	BOTTOM_RIGHT
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	self.reset()
+	
+func reset():
+	$Main/BorderBottom.visible = false
+	$Main/BorderLeft.visible = false
+	$Main/BorderRight.visible = false
+	$Main/BorderTop.visible = false
+	$Main/CornerBottomLeft.visible = false
+	$Main/CornerBottomRight.visible = false
+	$Main/CornerTopLeft.visible = false
+	$Main/CornerTopRight.visible = false
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func set_type(typee: Type) -> void:
-	self.type = typee
+func add_border(pos: BorderPosition) -> void:
+	if (pos == BorderPosition.LEFT):
+		$Main/BorderLeft.visible = true
+	if (pos == BorderPosition.RIGHT):
+		$Main/BorderRight.visible = true
+	if (pos == BorderPosition.TOP):
+		$Main/BorderTop.visible = true
+	if (pos == BorderPosition.BOTTOM):
+		$Main/BorderBottom.visible = true
+
+func add_corner(pos: CornerPosition) -> void:
+	if (pos == CornerPosition.TOP_LEFT):
+		$Main/CornerTopLeft.visible = true
+	if (pos == CornerPosition.TOP_RIGHT):
+		$Main/CornerTopRight.visible = true
+	if (pos == CornerPosition.BOTTOM_LEFT):
+		$Main/CornerBottomLeft.visible = true
+	if (pos == CornerPosition.BOTTOM_RIGHT):
+		$Main/CornerBottomRight.visible = true
