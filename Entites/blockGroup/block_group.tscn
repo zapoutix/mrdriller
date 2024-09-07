@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c042npfvx4vve"]
+
+[ext_resource type="Script" path="res://Entites/blockGroup/BlockGroup.gd" id="1_naxk7"]
+
+[node name="BlockGroup" type="Node2D"]
+script = ExtResource("1_naxk7")

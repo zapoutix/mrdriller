@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://uqiynvdber7v"]
+
+[ext_resource type="PackedScene" uid="uid://c042npfvx4vve" path="res://Entites/blockGroup/block_group.tscn" id="1_i2mdb"]
+[ext_resource type="Texture2D" uid="uid://chtul7iuw57xi" path="res://icon.svg" id="2_4ka7u"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BlockGroup" parent="." instance=ExtResource("1_i2mdb")]
+position = Vector2(34, 42)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(80, 166)
+texture = ExtResource("2_4ka7u")

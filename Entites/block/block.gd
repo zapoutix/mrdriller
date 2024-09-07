@@ -1,4 +1,4 @@
-class_name Tile
+class_name MrDrillerBlock
 extends Node2D
 
 @onready var sprites: AnimatedSprite2D = $BlueSprites
@@ -43,5 +43,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_type(type: Type) -> void:
-	self.type = type
+func set_type(typee: Type) -> void:
+	self.type = typee
