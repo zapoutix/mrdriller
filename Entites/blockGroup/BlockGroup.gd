@@ -55,7 +55,27 @@ func shape_blocks():
 			block.block.add_border(MrDrillerBlock.BorderPosition.TOP)
 		if (!_check_close_block_exists(block, Vector2i(0, 1))):
 			block.block.add_border(MrDrillerBlock.BorderPosition.BOTTOM)
+		#borders
 		
+		if (_check_close_block_exists(block, Vector2i(-1, 0)) 
+		and _check_close_block_exists(block, Vector2i(0, -1))
+		and !_check_close_block_exists(block, Vector2i(-1, -1))):
+			block.block.add_corner(MrDrillerBlock.CornerPosition.TOP_LEFT)
+			
+		if (_check_close_block_exists(block, Vector2i(1, 0)) 
+		and _check_close_block_exists(block, Vector2i(0, -1))
+		and !_check_close_block_exists(block, Vector2i(1, -1))):
+			block.block.add_corner(MrDrillerBlock.CornerPosition.TOP_RIGHT)
+
+		if (_check_close_block_exists(block, Vector2i(-1, 0)) 
+		and _check_close_block_exists(block, Vector2i(0, 1))
+		and !_check_close_block_exists(block, Vector2i(-1, 1))):
+			block.block.add_corner(MrDrillerBlock.CornerPosition.BOTTOM_LEFT)
+
+		if (_check_close_block_exists(block, Vector2i(1, 0)) 
+		and _check_close_block_exists(block, Vector2i(0, 1))
+		and !_check_close_block_exists(block, Vector2i(1, 1))):
+			block.block.add_corner(MrDrillerBlock.CornerPosition.BOTTOM_RIGHT)
 	pass
 	
 func _get_blockInfo(pos:Vector2i) -> BlockInfo:

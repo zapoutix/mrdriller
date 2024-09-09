@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tqy8b7nr4g2m"]
+[gd_scene load_steps=14 format=3 uid="uid://tqy8b7nr4g2m"]
 
 [ext_resource type="Script" path="res://Entites/block/block.gd" id="1_sekcn"]
 [ext_resource type="Texture2D" uid="uid://ck7v5ekcsux0m" path="res://Assets/block-blue.png" id="2_rkbe8"]
@@ -43,7 +43,10 @@ region = Rect2(224, 0, 32, 32)
 atlas = ExtResource("2_rkbe8")
 region = Rect2(256, 0, 32, 32)
 
-[node name="Block" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1nkq"]
+size = Vector2(32, 32)
+
+[node name="Block" type="Area2D"]
 script = ExtResource("1_sekcn")
 
 [node name="Main" type="Sprite2D" parent="."]
@@ -80,3 +83,6 @@ texture = SubResource("AtlasTexture_xu4n6")
 
 [node name="CornerBottomLeft" type="Sprite2D" parent="Main"]
 texture = SubResource("AtlasTexture_w1yic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t1nkq")
